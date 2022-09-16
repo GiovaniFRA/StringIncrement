@@ -2,10 +2,10 @@
 #include <string.h>
 
 void reset(int *a){
-    if(*a == 0 || *a >127){
+    if(*a<33 || *a >127){
         *a=33;
     }else{
-        *a++;
+        *a+=1;
     }
 }
 
@@ -19,24 +19,30 @@ int main(){
 
     char b[7];
 
-    while(strcmp(b,"!a!")!=0){
+    while(strcmp(b,"palha")!=0){
 
         for(int i=0;i<7;i++){
             b[i]=a[i];
         }
 
-        a[0]++; 
-        if(a[0]>127){
-            a[1]++;
-            reset(&a[0]);
+        reset(&a[0]);
+        if(a[0]==127){
+            reset(&a[1]);
 
-            if(a[1]>127)
-            {
+            if(a[1]==127){
                 reset(&a[2]);
-                reset(&a[1]);
+
+                if(a[2]==127){
+                    reset(&a[3]);
+
+                    if(a[3]==127){
+                        reset(&a[4]);
+                    }
+                }
             }
         }
-        printf("%c e %c e %c\n",a[0],a[1],a[2]);
+      
+       
 
     }
     
