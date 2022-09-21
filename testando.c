@@ -3,6 +3,9 @@
 #include <ctype.h>
 
 
+
+
+
 void click(){
      mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0,0,0);
      mouse_event(MOUSEEVENTF_LEFTUP, 0, 0,0,0);
@@ -56,9 +59,14 @@ void threeKeycode(char a,char b,char c){
         sendKeyUp(a);
 }
 
+void verificaCaracterEspecial(char a[]){
+
+}
+
+
+
 void inputText(char a[],int d){
     for(int i=0;i<d;i++){
-            
             // if(a[i]==','){
             //     input(188);
             // }else{
@@ -67,9 +75,15 @@ void inputText(char a[],int d){
             if (a[i] >= 'A' && a[i] <= 'Z'){
                 twoKeycode(16,a[i]);
             }
-        
+            else if(a[i] >='a' && !a[i] <='z'){
+                 input(toupper(a[i]));
+            }
             else {
-                input(toupper(a[i]));
+
+               if(a[i]==' '){
+                   input(a[i]);
+               }
+               
             }
             Sleep(200);
     }
@@ -80,14 +94,15 @@ void inputText(char a[],int d){
 
 int main()
 {
-   
+    char escpeciais[]="[]{}´`^~?/:;>.<,°ª+=_-)(*&&¨%$#@!'\"|\\";
+    
     
     char text[]="shrek is ok";
     SetCursorPos(700,950);
     click();
     inputText(text,sizeof(text));
 
-    // input(19);
+    input(19);
    
     return 0;
 }
