@@ -58,9 +58,20 @@ void threeKeycode(char a,char b,char c){
 
 void inputText(char a[],int d){
     for(int i=0;i<d;i++){
-            input(toupper(a[i]));
-            Sleep(500);
+            
+            // if(a[i]==','){
+            //     input(188);
+            // }else{
+            //     input(toupper(a[i]));
+            // }
+            if (a[i] >= 'A' && a[i] <= 'Z'){
+                twoKeycode(16,a[i]);
+            }
         
+            else {
+                input(toupper(a[i]));
+            }
+            Sleep(200);
     }
    
 }
@@ -71,7 +82,7 @@ int main()
 {
    
     
-    char text[]="marcio bigolin";
+    char text[]="Ola mero mortal eu posso ver voce";
     SetCursorPos(700,950);
     click();
     inputText(text,sizeof(text));
