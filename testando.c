@@ -82,7 +82,7 @@ int main()
 {
    
     
-    char text[]="Ola mero mortal eu posso ver voce";
+    char text[]="shrek is ok";
     SetCursorPos(700,950);
     click();
     inputText(text,sizeof(text));
