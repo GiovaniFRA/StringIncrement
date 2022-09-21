@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <windows.h>
+#include <ctype.h>
+
 
 void click(){
      mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0,0,0);
@@ -54,14 +56,25 @@ void threeKeycode(char a,char b,char c){
         sendKeyUp(a);
 }
 
+void inputText(char a[],int d){
+    for(int i=0;i<d;i++){
+            input(toupper(a[i]));
+            Sleep(500);
+        
+    }
+   
+}
+
+
+
 int main()
 {
    
+    
+    char text[]="marcio bigolin";
     SetCursorPos(700,950);
     click();
-    Sleep(100);
-    threeKeycode(17,18,221);
-    
+    inputText(text,sizeof(text));
 
     // input(19);
    
