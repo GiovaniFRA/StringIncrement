@@ -33,37 +33,38 @@ void sendKeyUp(unsigned char keyCode)
     SendInput(1, &input, sizeof(INPUT));
 }
 
+//apertar uma tecla
 void input(char a){
     sendKeyDown(a);
     sendKeyUp(a);
 }
 
+//apertar duas teclas ex: shift+2=@
+void twoKeycode(char a,char b){
+        sendKeyDown(a);
+        input(b);
+        sendKeyUp(a);
+}
+
+void threeKeycode(char a,char b,char c){
+      sendKeyDown(a);
+      sendKeyDown(b);
+        input(c);
+        sendKeyUp(b);
+        sendKeyUp(a);
+}
+
 int main()
 {
-        
-        SetCursorPos(1250,10); //Muda a posição do cursor  
-        click();
-        SetCursorPos(600,750);
-        click();
-        SetCursorPos(600,400);
-        click();
-        Sleep(100);
-        input('R');
-        input('O');
-        input('G');
-        input('E');
-        input('R');
-      
-        
-        // click();k
-
-    // while(1){
-    //      if(GetAsyncKeyState(0x01)){kk
-    //         puts("clicou");
-    //     }
-    // }
-       
+   
+    SetCursorPos(700,950);
+    click();
+    Sleep(100);
+    threeKeycode(17,18,221);
     
+
+    // input(19);
+   
     return 0;
 }
 
